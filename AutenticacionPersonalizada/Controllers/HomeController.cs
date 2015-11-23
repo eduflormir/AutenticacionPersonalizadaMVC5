@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,11 +13,15 @@ namespace AutenticacionPersonalizada.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            var cifrado = SeguridadUtilidades.Cifrar("Hola don pepito", "zxcvbnmñlkjhgfdsapoiuytrewq098776544332211");
+
+            // para recuperar una clave desde WebConfig
+            var clave = ConfigurationManager.AppSettings["ClaveCifrado"];
+
+            var cifrado = SeguridadUtilidades.Cifrar("Hola don pepito", clave);
 
             var data = Convert.FromBase64String(cifrado);
 
-            var descifrado = SeguridadUtilidades.DesCifrar(data, "zxcvbnmñlkjhgfdsapoiuytrewq098776544332211");
+            var descifrado = SeguridadUtilidades.DesCifrar(data, clave);
 
             return View();
         }
