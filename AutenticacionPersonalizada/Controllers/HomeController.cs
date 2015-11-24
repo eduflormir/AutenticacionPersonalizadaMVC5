@@ -8,21 +8,27 @@ using AutenticacionPersonalizada.Utilidades;
 
 namespace AutenticacionPersonalizada.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         // GET: Home
+        //public ActionResult Index()
+        //{
+
+        //    // para recuperar una clave desde WebConfig
+        //    var clave = ConfigurationManager.AppSettings["ClaveCifrado"];
+
+        //    var cifrado = SeguridadUtilidades.Cifrar("luis.gil@tajamar365.com", clave);
+
+        //    var data = Convert.FromBase64String(cifrado);
+
+        //    var descifrado = SeguridadUtilidades.DesCifrar(data, clave);
+
+        //    return View();
+        //}
+
         public ActionResult Index()
         {
-
-            // para recuperar una clave desde WebConfig
-            var clave = ConfigurationManager.AppSettings["ClaveCifrado"];
-
-            var cifrado = SeguridadUtilidades.Cifrar("Hola don pepito", clave);
-
-            var data = Convert.FromBase64String(cifrado);
-
-            var descifrado = SeguridadUtilidades.DesCifrar(data, clave);
-
             return View();
         }
     }
