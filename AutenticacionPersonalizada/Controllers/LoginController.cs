@@ -19,7 +19,7 @@ namespace AutenticacionPersonalizada.Controllers
             if (Membership.ValidateUser(model.login, model.password))
             {
                 //var l = SeguridadUtilidades.DesCifrar(Convert.FromBase64String(model.login), clave);
-                FormsAuthentication.RedirectFromLoginPage(model.login,false);
+                FormsAuthentication.RedirectFromLoginPage(model.login, false);
                 return null;
             }
             return View(model);

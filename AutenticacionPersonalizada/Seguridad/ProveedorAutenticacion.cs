@@ -48,7 +48,7 @@ namespace AutenticacionPersonalizada.Seguridad
                 // var login = SeguridadUtilidades.Cifrar(username, clave);
                 var pwd = SeguridadUtilidades.GetSha1(password);
 
-                return db.Usuario.Any(o => o.login == username && o.password == pwd); // si encuentra es True, de lo contrario False
+                return db.Usuario.Any(o=>o.password == pwd && o.login == username); // si encuentra es True, de lo contrario False
             }
         }
 

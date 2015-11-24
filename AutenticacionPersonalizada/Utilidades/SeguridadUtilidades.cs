@@ -27,10 +27,10 @@ namespace AutenticacionPersonalizada.Utilidades
             for (int i = 0; i < datos.Length; i++)
             {
                 // {0:x2} hexadecimal de 2 digitos por byte
-                builder.AppendFormat("{0:x2}",datos[i]);
+                builder.AppendFormat("{0:x2}", datos[i]);
             }
 
-            return datos.ToString();
+            return builder.ToString();
         }
 
         /// <summary>
